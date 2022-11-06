@@ -6,7 +6,6 @@ import androidx.activity.ComponentActivity
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.FileProvider
-import com.example.notinstagram.content.ImageCard
 import java.io.File
 
 class PhotoHandler(context: Context){

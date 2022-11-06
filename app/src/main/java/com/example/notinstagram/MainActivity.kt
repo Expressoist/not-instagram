@@ -1,14 +1,8 @@
 package com.example.notinstagram
 
-import android.media.Image
 import android.net.Uri
 import android.os.Bundle
-import android.os.Environment
-import androidx.activity.result.ActivityResultLauncher
-import androidx.activity.result.contract.ActivityResultContract
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.FileProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.notinstagram.content.ImageCard
@@ -16,7 +10,6 @@ import com.example.notinstagram.content.ImageCardAdapter
 import com.example.notinstagram.interactions.EditorContract
 import com.example.notinstagram.interactions.PhotoObserver
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import java.io.File
 
 
 class MainActivity : AppCompatActivity(), PhotoObserver {

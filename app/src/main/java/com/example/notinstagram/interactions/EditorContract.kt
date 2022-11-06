@@ -2,7 +2,6 @@ package com.example.notinstagram.interactions
 
 import android.content.Context
 import android.content.Intent
-import android.media.Image
 import android.net.Uri
 import androidx.activity.result.contract.ActivityResultContract
 import com.example.notinstagram.EditorActivity
@@ -12,6 +11,8 @@ class EditorContract : ActivityResultContract<Uri, ImageCard>() {
 
     companion object {
         const val IMAGE_URI = "IMAGE_URI"
+        const val LOCATION_TAKEN = "LOCATION_TAKEN"
+        const val DESCRIPTION = "IMAGE_URI"
     }
 
     override fun createIntent(context: Context, input: Uri): Intent {
@@ -25,8 +26,8 @@ class EditorContract : ActivityResultContract<Uri, ImageCard>() {
     override fun parseResult(resultCode: Int, intent: Intent?): ImageCard {
         return ImageCard(
             intent?.extras?.get(IMAGE_URI) as Uri?,
-            intent?.extras?.get("locationTaken") as String,
-            intent?.extras?.get("description") as String
+            intent?.extras?.get(LOCATION_TAKEN) as String,
+            intent?.extras?.get(DESCRIPTION) as String
         )
     }
 
