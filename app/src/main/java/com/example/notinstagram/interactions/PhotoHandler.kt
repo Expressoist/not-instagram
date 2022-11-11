@@ -1,44 +1,60 @@
 package com.example.notinstagram.interactions
 
+import android.annotation.SuppressLint
+import android.content.ContentResolver.MimeTypeInfo
+import android.content.ContentValues
 import android.content.Context
+import android.content.Intent
+import android.media.MediaScannerConnection
 import android.net.Uri
+import android.os.Build
+import android.os.Environment
+import android.provider.MediaStore
 import androidx.activity.ComponentActivity
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.annotation.RequiresApi
 import androidx.core.content.FileProvider
 import java.io.File
+import java.text.SimpleDateFormat
+import java.util.*
+import java.util.function.Consumer
 
-class PhotoHandler(context: Context){
+class PhotoHandler(private var owner: ComponentActivity){
 
-    private val context = context
-    private var mostRecentUri : Uri? = null
-    private var currentListener : PhotoObserver? = null
-    private var launcher : ActivityResultLauncher<Uri>? = null
-
-    fun setListener(activity: ComponentActivity, listener: PhotoObserver) {
-        currentListener = listener
-        launcher = activity.registerForActivityResult(
-            ActivityResultContracts.TakePicture())
-                { result -> handlePhotoResult(result) }
+    companion object {
+        const val TIMESTAMP_FORMAT = "yyyyMMdd_HHmmss";
+        const val RELATIVE_PATH = "relative_path" // MediaStore.MediaColumns.RELATIVE_PATH needs API 29
     }
 
-    fun takePicture() {
-        mostRecentUri = createTempUri(context)
-        launcher?.launch(mostRecentUri)
+    private var currentPhotoPath : Uri? = null
+    private var callback: Consumer<Uri>? = null;
+    private var photoLauncher : ActivityResultLauncher<Uri> = owner.registerForActivityResult(
+                                    ActivityResultContracts.TakePicture())
+                                    { result -> onPhotoTaken(result) }
+
+    fun takePhoto(onSuccess: Consumer<Uri>) {
+        callback = onSuccess
+        currentPhotoPath = initFile(owner)
+        photoLauncher.launch(currentPhotoPath)
     }
 
-    private fun createTempUri(context: Context): Uri {
-        val tmpFile = File.createTempFile("tmp_image_file", ".png", context.cacheDir).apply {
-            createNewFile()
-            deleteOnExit()
+    @SuppressLint("SimpleDateFormat")
+    private fun initFile(context: Context) : Uri? {
+        val timeStamp = SimpleDateFormat(TIMESTAMP_FORMAT).format(Date())
+        val fileValues = ContentValues().apply {
+            put(MediaStore.MediaColumns.DISPLAY_NAME, "JPEG_${timeStamp}")
+            put(MediaStore.MediaColumns.MIME_TYPE, "image/jpeg")
+            put(RELATIVE_PATH, Environment.DIRECTORY_PICTURES)
         }
-        return FileProvider.getUriForFile(context, "${context.packageName}.provider", tmpFile)
+        return context.contentResolver.insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, fileValues)
     }
 
-    private fun handlePhotoResult(hasBeenSavedToUri: Boolean){
-        if(hasBeenSavedToUri) {
-            currentListener?.onSuccess(mostRecentUri)
+    private fun onPhotoTaken(wasSuccessful: Boolean){
+        if(wasSuccessful) {
+            currentPhotoPath?.let {
+                callback?.accept(it)
+            }
         }
     }
-
 }

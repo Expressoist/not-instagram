@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">NotInstagram</string>
+    <string name="searching">Searching…</string>
+    <string name="generic_location_error">There was an error finding your location. Please try again or enter the location manually.</string>
+    <string name="no_provider">No location provider found. Please enable location detection or enter the location manually.</string>
+    <string name="no_permissions">No permission to access your location. Please change the permissions or enter the location manually.</string>
+    <string name="werther">Werther</string>
+    <string name="werther_text">Eine wunderbare Heiterkeit hat meine ganze Seele eingenommen, gleich den süßen Frühlingsmorgen, die ich mit ganzem Herzen genieße. Ich bin allein und freue mich meines Lebens in dieser Gegend, die für solche Seelen geschaffen ist wie die meine.</string>
+    <string name="kafka">Kafka</string>
+    <string name="kafka_text">Jemand musste Josef K. verleumdet haben, denn ohne dass er etwas Böses getan hätte, wurde er eines Morgens verhaftet. »Wie ein Hund!« sagte er, es war, als sollte die Scham ihn überleben.</string>
 </resources>

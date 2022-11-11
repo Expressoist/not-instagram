@@ -5,10 +5,8 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.pm.PackageManager
 import android.location.*
-import android.os.Build
 import androidx.activity.ComponentActivity
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
 import java.util.function.Consumer
 
@@ -16,21 +14,20 @@ import java.util.function.Consumer
 class LocationHandler(private var owner: ComponentActivity) : LocationListener {
 
     companion object {
-        const val CALLBACK_CODE = 1;
-        val PERMISSIONS = arrayOf( Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION )
+        val PERMISSIONS = arrayOf( Manifest.permission.ACCESS_FINE_LOCATION,
+                                   Manifest.permission.ACCESS_COARSE_LOCATION )
     }
 
-    private val criteria = Criteria()
-    private val service = Context.LOCATION_SERVICE
+    enum class Failure { MISSING_PERMISSIONS, GRANT_RESULTS_RETURNED_NULL, NO_PROVIDER_AVAILABLE }
 
+    private val criteria = Criteria()
     private var manager: LocationManager? = null
     private var provider: String? = null
-
+    private var successCallback: Consumer<Address>? = null
+    private var failureCallback: Consumer<Failure>? = null
     private val permissionLauncher = owner.registerForActivityResult(
                                         ActivityResultContracts.RequestMultiplePermissions()
-                                        ) { grantResults -> onRequestPermissionsResult(grantResults) }
-
-    private var callback: Consumer<Address>? = null
+                                        ) { grantResults -> onPermissionsGranted(grantResults) }
 
     init {
         criteria.accuracy = Criteria.ACCURACY_FINE
@@ -41,41 +38,47 @@ class LocationHandler(private var owner: ComponentActivity) : LocationListener {
         criteria.powerRequirement = Criteria.POWER_MEDIUM
     }
 
-    private fun onRequestPermissionsResult(grantResults: Map<String, Boolean>?) {
-        val hasPermissions = grantResults?.all { grantResult -> grantResult.value }
-        if(hasPermissions == true){
-            callback?.let { findLocation(it) }
-        }
-    }
-
-    @SuppressLint("MissingPermission")
-    fun findLocation(onSuccess: Consumer<Address>) {
-        callback = onSuccess
+    fun findLocation(onSuccess: Consumer<Address>, onFailure: Consumer<Failure>) {
+        successCallback = onSuccess
+        failureCallback = onFailure
         if(hasPermissions()) {
-            manager = owner.getSystemService(service) as LocationManager?
-            provider = manager?.getBestProvider(criteria, true)
-            provider?.let { manager?.requestLocationUpdates(it, 1000L, 0f, this) }
+            dispatchLocationService()
         } else {
             permissionLauncher.launch(PERMISSIONS)
         }
     }
 
-    private fun hasPermissions(): Boolean {
-        for (permission in PERMISSIONS) {
-            if ( ActivityCompat.checkSelfPermission(owner, permission)
-                    != PackageManager.PERMISSION_GRANTED ) {
-                return false
+    private fun onPermissionsGranted(grantResults: Map<String, Boolean>?) {
+        grantResults?.also {
+            val hasPermissions = it.all { grantResult -> grantResult.value }
+            if(hasPermissions) {
+                dispatchLocationService()
+            } else {
+                failureCallback?.accept(Failure.MISSING_PERMISSIONS)
             }
         }
-        return true
+        ?: failureCallback?.accept(Failure.GRANT_RESULTS_RETURNED_NULL)
     }
 
-    @RequiresApi(Build.VERSION_CODES.N)
+    @SuppressLint("MissingPermission")
+    private fun dispatchLocationService() {
+        manager = owner.getSystemService(Context.LOCATION_SERVICE) as LocationManager?
+        provider = manager?.getBestProvider(criteria, true)
+        provider?.also {
+            manager?.requestLocationUpdates(it, 0L, 0f, this)
+        }
+        ?: failureCallback?.accept(Failure.NO_PROVIDER_AVAILABLE)
+    }
+
+    private fun hasPermissions(): Boolean {
+        return PERMISSIONS.all{ permission ->
+            ActivityCompat.checkSelfPermission(owner, permission) == PackageManager.PERMISSION_GRANTED
+        }
+    }
+
     override fun onLocationChanged(location: Location) {
         manager?.removeUpdates(this)
-        val geocoder = Geocoder(owner)
-        val address = geocoder.getFromLocation(location.latitude, location.longitude, 1).first()
-        callback?.accept(address)
+        val address = Geocoder(owner).getFromLocation(location.latitude, location.longitude, 1).first()
+        successCallback?.accept(address)
     }
-
 }

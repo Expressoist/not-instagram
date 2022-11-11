@@ -1,14 +1,16 @@
 package com.example.notinstagram.content
 
+import android.app.Activity
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.notinstagram.MainActivity
 import com.example.notinstagram.R
 
-class ImageCardAdapter(mainActivity: MainActivity, data: ArrayList<ImageCard>) : RecyclerView.Adapter<ImageCardViewHolder>() {
-
-    private val imageCards = data
+class ImageCardAdapter(
+    private val owner: Activity,
+    private val imageCards: ArrayList<ImageCard>)
+    : RecyclerView.Adapter<ImageCardViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ImageCardViewHolder {
         val context = parent.context
@@ -31,6 +33,12 @@ class ImageCardAdapter(mainActivity: MainActivity, data: ArrayList<ImageCard>) :
     override fun onBindViewHolder(holder: ImageCardViewHolder, position: Int) {
         holder.descriptionView.text = imageCards[position].description
         holder.locationTakenView.text = imageCards[position].locationTaken
+        val imageUri = imageCards[position].imageReference
+        if(imageUri != null) {
+            holder.imageView.setImageURI(imageUri)
+        } else {
+            holder.imageView.setImageDrawable(owner.resources.getDrawable(R.drawable.not_found))
+        }
         holder.imageView.setImageURI(imageCards[position].imageReference)
     }
 

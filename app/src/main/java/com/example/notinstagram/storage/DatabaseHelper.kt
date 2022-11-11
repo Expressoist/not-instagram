@@ -25,6 +25,10 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         """.trimIndent())
     }
 
+    fun clearDatabase() {
+        this.writableDatabase.execSQL("DELETE FROM imageCards")
+    }
+
     fun insertImageCard(imageCard: ImageCard) {
         val values = ContentValues()
         values.put("imageUri", imageCard.imageReference.toString())

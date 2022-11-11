@@ -10,43 +10,63 @@
     <ImageView
         android:id="@+id/image_view"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
+        android:layout_height="200dp"
         android:scaleType="centerCrop"
-        app:layout_constraintTop_toTopOf="parent">
-
-    </ImageView>
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <EditText
         android:id="@+id/location_taken"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        app:layout_constraintTop_toBottomOf="@id/image_view">
-
-    </EditText>
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="60dp"
+        android:drawableStart="@drawable/ic_baseline_location_on_24"
+        android:drawableTint="@color/light_gray"
+        android:drawablePadding="5dp"
+        app:layout_constraintTop_toBottomOf="@id/image_view"/>
 
     <ImageButton
         android:id="@+id/location_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_baseline_add_location_alt_24"
+        android:src="@drawable/ic_baseline_my_location_24"
         android:backgroundTint="@color/design_default_color_primary"
         app:layout_constraintTop_toTopOf="@id/location_taken"
-        app:layout_constraintEnd_toEndOf="@id/location_taken"/>
+        app:layout_constraintBottom_toBottomOf="@id/location_taken"
+        app:layout_constraintStart_toEndOf="@id/location_taken"/>
 
     <EditText
         android:id="@+id/description"
         android:inputType="textMultiLine"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
+        android:lines="5"
+        android:gravity="top"
+        android:layout_margin="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/location_taken">
+        android:drawableStart="@drawable/ic_baseline_notes_24"
+        android:drawableTint="@color/light_gray"
+        android:drawablePadding="5dp"
+        app:layout_constraintTop_toBottomOf="@id/location_taken"/>
 
-    </EditText>
+    <Button
+        android:id="@+id/description_werther"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/werther"
+        app:layout_constraintTop_toBottomOf="@id/description"
+        app:layout_constraintStart_toStartOf="@id/description"/>
+
+    <Button
+        android:id="@+id/description_kafka"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="@string/kafka"
+        app:layout_constraintTop_toTopOf="@id/description_werther"
+        app:layout_constraintStart_toEndOf="@id/description_werther"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_save"
