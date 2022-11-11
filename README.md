@@ -11,4 +11,19 @@ So werden die verlangten **7 Punkte** erreicht:
 
 ## Screenshots
 
-Ausstehend
+### Hauptansicht
+
+[Hauptansicht mit Bilder](screenshots/Screenshot_20221111_150604_com.example.notinstagram.jpg)
+[Hauptansicht mit fehlenden Bilder](screenshots/Screenshot_20221111_150834_com.example.notinstagram.jpg)
+
+### Editor
+
+[Editor](screenshots/Screenshot_20221111_150918_com.example.notinstagram.jpg)
+[Abfrage vom Standort](screenshots/Screenshot_20221111_150922_com.example.notinstagram.jpg)
+[Editor mit Text und Standort](screenshots/Screenshot_20221111_150928_com.example.notinstagram.jpg)
+
+### Meldungen
+
+[Berechtigung](screenshots/Screenshot_20221111_151253_com.google.android.permissioncontroller.jpg)
+[Standort ohne Provider](screenshots/Screenshot_20221111_151300_com.example.notinstagram.jpg)
+[Standort ohne Berechtigung](screenshots/Screenshot_20221111_151310_com.example.notinstagram.jpg)
