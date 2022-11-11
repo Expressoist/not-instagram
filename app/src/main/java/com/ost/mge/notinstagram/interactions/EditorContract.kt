@@ -1,12 +1,12 @@
-package com.example.notinstagram.interactions
+package com.ost.mge.notinstagram.interactions
 
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import androidx.activity.result.contract.ActivityResultContract
-import com.example.notinstagram.EditorActivity
-import com.example.notinstagram.content.ImageCard
+import com.ost.mge.notinstagram.EditorActivity
+import com.ost.mge.notinstagram.content.ImageCard
 
 class EditorContract : ActivityResultContract<Uri, ImageCard?>() {
 

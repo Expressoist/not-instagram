@@ -1,4 +1,4 @@
-package com.example.notinstagram.content
+package com.ost.mge.notinstagram.content
 
 import android.net.Uri
 

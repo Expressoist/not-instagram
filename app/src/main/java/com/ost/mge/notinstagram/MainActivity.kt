@@ -1,14 +1,15 @@
-package com.example.notinstagram
+package com.ost.mge.notinstagram
 
 import android.net.Uri
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.notinstagram.content.ImageCard
-import com.example.notinstagram.content.ImageCardAdapter
-import com.example.notinstagram.interactions.EditorContract
-import com.example.notinstagram.interactions.PhotoHandler
+import com.example.notinstagram.R
+import com.ost.mge.notinstagram.content.ImageCard
+import com.ost.mge.notinstagram.content.ImageCardAdapter
+import com.ost.mge.notinstagram.interactions.EditorContract
+import com.ost.mge.notinstagram.interactions.PhotoHandler
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import java.io.FileNotFoundException
 

@@ -1,4 +1,4 @@
-package com.example.notinstagram.interactions
+package com.ost.mge.notinstagram.interactions
 
 import android.Manifest
 import android.annotation.SuppressLint

@@ -1,7 +1,6 @@
-package com.example.notinstagram
+package com.ost.mge.notinstagram
 
 import android.content.Intent
-import android.graphics.drawable.Drawable
 import android.location.Address
 import android.net.Uri
 import android.os.Bundle
@@ -11,8 +10,9 @@ import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.notinstagram.interactions.EditorContract
-import com.example.notinstagram.interactions.LocationHandler
+import com.example.notinstagram.R
+import com.ost.mge.notinstagram.interactions.EditorContract
+import com.ost.mge.notinstagram.interactions.LocationHandler
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class EditorActivity : AppCompatActivity() {

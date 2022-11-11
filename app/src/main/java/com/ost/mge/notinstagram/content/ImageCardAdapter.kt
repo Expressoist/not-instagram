@@ -1,10 +1,9 @@
-package com.example.notinstagram.content
+package com.ost.mge.notinstagram.content
 
 import android.app.Activity
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.notinstagram.MainActivity
 import com.example.notinstagram.R
 
 class ImageCardAdapter(

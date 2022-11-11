@@ -1,11 +1,11 @@
-package com.example.notinstagram.storage
+package com.ost.mge.notinstagram.storage
 
 import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.net.Uri
-import com.example.notinstagram.content.ImageCard
+import com.ost.mge.notinstagram.content.ImageCard
 
 class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
 
