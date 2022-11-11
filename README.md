@@ -13,7 +13,7 @@ So werden die verlangten **7 Punkte** erreicht:
 
 ### Hauptansicht
 
-<table style="border: none">
+<table>
 <tr>
 <td>
 
@@ -30,12 +30,44 @@ So werden die verlangten **7 Punkte** erreicht:
 
 ### Editor
 
+<table>
+<tr>
+<td>
+
 ![Editor](screenshots/Screenshot_20221111_150918_com.example.notinstagram.jpg)
+
+</td>
+<td>
+
 ![Abfrage vom Standort](screenshots/Screenshot_20221111_150922_com.example.notinstagram.jpg)
+
+</td>
+<td>
+
 ![Editor mit Text und Standort](screenshots/Screenshot_20221111_150928_com.example.notinstagram.jpg)
+
+</td>
+</tr>
+</table>
 
 ### Meldungen
 
+<table>
+<tr>
+<td>
+
 ![Berechtigung](screenshots/Screenshot_20221111_151253_com.google.android.permissioncontroller.jpg)
+
+</td>
+<td>
+
 ![Standort ohne Provider](screenshots/Screenshot_20221111_151300_com.example.notinstagram.jpg)
+
+</td>
+<td>
+
 ![Standort ohne Berechtigung](screenshots/Screenshot_20221111_151310_com.example.notinstagram.jpg)
+
+</td>
+</tr>
+</table>
