@@ -13,7 +13,7 @@ So werden die verlangten **7 Punkte** erreicht:
 
 ### Hauptansicht
 
-<table>
+<table style="border: none">
 <tr>
 <td>
 
@@ -24,8 +24,6 @@ So werden die verlangten **7 Punkte** erreicht:
 
 ![Hauptansicht mit fehlenden Bilder](screenshots/Screenshot_20221111_150834_com.example.notinstagram.jpg)
 
-</td>
-<td>
 </td>
 </tr>
 </table>
