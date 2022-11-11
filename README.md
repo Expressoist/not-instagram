@@ -13,8 +13,22 @@ So werden die verlangten **7 Punkte** erreicht:
 
 ### Hauptansicht
 
+<table>
+<tr>
+<td>
+
 ![Hauptansicht mit Bilder](screenshots/Screenshot_20221111_150604_com.example.notinstagram.jpg)
+
+</td>
+<td>
+
 ![Hauptansicht mit fehlenden Bilder](screenshots/Screenshot_20221111_150834_com.example.notinstagram.jpg)
+
+</td>
+<td>
+</td>
+</tr>
+</table>
 
 ### Editor
 
