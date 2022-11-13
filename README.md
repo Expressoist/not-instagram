@@ -1,6 +1,6 @@
-# Not-Instagram
-Not-Instagram ist ein vereinfachter Instagram-Klon, welcher für das MGE-Miniprojekt 2022 entwickelt wurde.
-Benutzer können mit dieser App Fotos aufnehmen und anschliessend zusammen mit einer Beschreibung und dem aktuellen Standort abspeichern.
+# NotInstagram
+NotInstagram ist ein vereinfachter Instagram-Klon, welcher für das MGE-Miniprojekt 2022 entwickelt wurde.
+Benutzer können mit dieser App Fotos aufnehmen und zusammen mit einer Beschreibung und dem aktuellen Standort abspeichern.
 Die aufgenommenen Bilder werden ausserdem in der Gallerie des Benutzers angezeigt.
 
 ## Punkteauflistung
