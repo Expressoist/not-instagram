@@ -13,14 +13,6 @@ So werden die verlangten **7 Punkte** erreicht:
 
 ## Screenshots
 
-### Hauptansicht
-
 ![Hauptansicht](screenshots/Screenshots_1.png)
-
-### Editor
-
 ![Editor](screenshots/Screenshots_2.png)
-
-### Meldungen
-
 ![Meldungen](screenshots/Screenshots_3.png)
