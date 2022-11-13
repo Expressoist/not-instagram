@@ -89,7 +89,7 @@ class EditorActivity : AppCompatActivity() {
 
     private fun enableLocationFields() {
         locationButton?.drawable?.setTint(resources.getColor(R.color.white))
-        locationButton?.background?.setTint(resources.getColor(R.color.purple_700))
+        locationButton?.background?.setTint(resources.getColor(R.color.indigo))
         locationButton?.isEnabled = true
         locationButton?.isClickable = true
         locationTakenView?.isEnabled = true

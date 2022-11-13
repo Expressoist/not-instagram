@@ -32,7 +32,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_baseline_my_location_24"
-        android:backgroundTint="@color/design_default_color_primary"
+        android:backgroundTint="@color/indigo"
         app:layout_constraintTop_toTopOf="@id/location_taken"
         app:layout_constraintBottom_toBottomOf="@id/location_taken"
         app:layout_constraintStart_toEndOf="@id/location_taken"/>
@@ -74,6 +74,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:src="@drawable/ic_baseline_check_24"
+        app:tint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
@@ -83,6 +84,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
         android:src="@drawable/ic_baseline_clear_24"
+        app:tint="@color/white"
         app:fabSize="mini"
         app:layout_constraintTop_toTopOf="@id/fab_save"
         app:layout_constraintBottom_toBottomOf="@id/fab_save"
