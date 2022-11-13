@@ -1,5 +1,7 @@
 # Not-Instagram
-Not-Instagram ist ein vereinfachter Instagram-Klon, welcher für das MGE-Miniprojekt 2022 entwickelt wurde. Benutzer können mit dieser App Fotos aufnehmen, diese bearbeiten und anschliessend zusammen mit einer Beschreibung und dem aktuellen Standort abspeichern.
+Not-Instagram ist ein vereinfachter Instagram-Klon, welcher für das MGE-Miniprojekt 2022 entwickelt wurde.
+Benutzer können mit dieser App Fotos aufnehmen und anschliessend zusammen mit einer Beschreibung und dem aktuellen Standort abspeichern.
+Die aufgenommenen Bilder werden ausserdem in der Gallerie des Benutzers angezeigt.
 
 ## Punkteauflistung
 So werden die verlangten **7 Punkte** erreicht:
@@ -13,61 +15,12 @@ So werden die verlangten **7 Punkte** erreicht:
 
 ### Hauptansicht
 
-<table>
-<tr>
-<td>
-
-![Hauptansicht mit Bilder](screenshots/Screenshot_20221111_150604_com.example.notinstagram.jpg)
-
-</td>
-<td>
-
-![Hauptansicht mit fehlenden Bilder](screenshots/Screenshot_20221111_150834_com.example.notinstagram.jpg)
-
-</td>
-</tr>
-</table>
+![Hauptansicht](screenshots/Screenshots_1.png)
 
 ### Editor
 
-<table>
-<tr>
-<td>
-
-![Editor](screenshots/Screenshot_20221111_150918_com.example.notinstagram.jpg)
-
-</td>
-<td>
-
-![Abfrage vom Standort](screenshots/Screenshot_20221111_150922_com.example.notinstagram.jpg)
-
-</td>
-<td>
-
-![Editor mit Text und Standort](screenshots/Screenshot_20221111_150928_com.example.notinstagram.jpg)
-
-</td>
-</tr>
-</table>
+![Editor](screenshots/Screenshots_2.png)
 
 ### Meldungen
 
-<table>
-<tr>
-<td>
-
-![Berechtigung](screenshots/Screenshot_20221111_151253_com.google.android.permissioncontroller.jpg)
-
-</td>
-<td>
-
-![Standort ohne Provider](screenshots/Screenshot_20221111_151300_com.example.notinstagram.jpg)
-
-</td>
-<td>
-
-![Standort ohne Berechtigung](screenshots/Screenshot_20221111_151310_com.example.notinstagram.jpg)
-
-</td>
-</tr>
-</table>
+![Meldungen](screenshots/Screenshots_3.png)
